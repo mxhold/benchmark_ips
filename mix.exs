@@ -8,7 +8,8 @@ defmodule BenchmarkIps.Mixfile do
       elixir: "~> 1.0",
       description: description,
       package: package,
-      deps: deps
+      deps: deps,
+      docs: [main: "README", readme: "README.md"],
     ]
   end
 
@@ -32,6 +33,9 @@ defmodule BenchmarkIps.Mixfile do
   end
 
   defp deps do
-    []
+    [
+      {:ex_doc, "~> 0.8", only: :dev},
+      {:earmark, "~> 0.1", only: :dev},
+    ]
   end
 end

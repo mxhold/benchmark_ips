@@ -1,0 +1,355 @@
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+        <title>BenchmarkIps – benchmark_ips v0.1.0</title>
+      
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc">
+
+    <link rel="stylesheet" href="dist/app.css">
+  </head>
+  <body>
+
+    
+    <div class="row row-offcanvas row-offcanvas-left">
+<section id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
+  <p class="pull-right visible-xs">
+  <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
+    <span class="glyphicon glyphicon-search"></span>
+  </button>
+  </p>
+
+  <h1 id="full_list_header">
+    
+      benchmark_ips v0.1.0
+    
+  </h1>
+
+  <h2 id="sub_list_header">
+    
+      <a href="README.html">README</a>
+    
+    <a href="overview.html">Overview</a>
+  </h2>
+
+  <div class="nav">
+    
+      <span><a id="modules_list" href="#full_list">Modules</a></span>
+    
+    
+      <span role="presentation" class="disabled">Exceptions</span>
+    
+    
+      <span role="presentation" class="disabled">Protocols</span>
+    
+  </div>
+
+  <div id="search">
+    <div class="col-xs-10">
+      <div class="input-group input-group-sm">
+        <label for="search_field" class="sr-only">Search</label>
+        <input type="text" id="search_field" class="form-control" placeholder="Search" autocomplete="off" autofocus="autofocus" results="0">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-xs-10 -->
+    <div class="col-xs-2" id="spinning">
+      <span></span>
+    </div><!-- /.col-xs-2 -->
+  </div><!-- /#search .row -->
+
+  <script src="dist/sidebar_items.js" defer></script>
+
+  <ul id="full_list">
+  </ul>
+
+  <div id="no_results"></div>
+</section><!--/.sidebar-offcanvas -->
+<section id="content" class="col-xs-12 col-sm-9">
+
+
+      <div class="breadcrumbs">
+        <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
+          <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </button>
+        benchmark_ips v0.1.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="BenchmarkIps.html#content">BenchmarkIps</a>
+      </div>
+
+      <h1>
+        BenchmarkIps
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary_details">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+
+      
+
+      
+        <section id="summary_details" class="details_list">
+          <h1>Summary</h1>
+          <table class="summary">
+            <tr>
+  <td class="summary_signature"><a href="#bench/3">bench(fun, batches, target_duration_s)</a></td>
+  <td class="summary_synopsis"><p>Returns the number of iterations and elapsed time of running a function in batches for the
+provided target duration (seconds)</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#call_times/2">call_times(fun, times)</a></td>
+  <td class="summary_synopsis"><p>Calls the function the specified number of times</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#iterations_per_100ms/2">iterations_per_100ms(iters, time_us)</a></td>
+  <td class="summary_synopsis"><p>Returns the number of iterations that should be able to be run in 100ms given a number
+of iterations and a duration in microseconds</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#iterations_runnable_in_duration_by_batches/3">iterations_runnable_in_duration_by_batches(fun, batches, target_duration_us)</a></td>
+  <td class="summary_synopsis"><p>Returns the number of iterations a function can run in the provided duration (microseconds) by
+running it in batches and checking between batches on the time elapsed</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#iterations_runnable_in_duration_by_batches/4">iterations_runnable_in_duration_by_batches(fun, batches, target_end_time_us, iters)</a></td>
+  <td class="summary_synopsis"></td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#measure_in_us/1">measure_in_us(fun)</a></td>
+  <td class="summary_synopsis"><p>Returns the result of running a function and the time it took to run in microseconds</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#now_us/0">now_us()</a></td>
+  <td class="summary_synopsis"><p>Returns current time in microseconds</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#report/2">report(fun, options \\ [])</a></td>
+  <td class="summary_synopsis"><p>Benchmarks a function and returns the iterations per second and microseconds per iterations</p>
+</td>
+</tr>
+
+          </table>
+        </section>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h1>Functions</h1>
+          <section class="detail">
+  <div class="detail_header" id="bench/3">
+    <span class="signature"><strong>bench(fun, batches, target_duration_s)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#bench/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>bench(zero_arity_fun, pos_integer, number) :: {pos_integer, number}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Returns the number of iterations and elapsed time of running a function in batches for the
+provided target duration (seconds)</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="call_times/2">
+    <span class="signature"><strong>call_times(fun, times)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#call_times/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>call_times(zero_arity_fun, pos_integer) :: nil</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Calls the function the specified number of times</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="iterations_per_100ms/2">
+    <span class="signature"><strong>iterations_per_100ms(iters, time_us)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#iterations_per_100ms/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>iterations_per_100ms(pos_integer, number) :: pos_integer</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Returns the number of iterations that should be able to be run in 100ms given a number
+of iterations and a duration in microseconds</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="iterations_runnable_in_duration_by_batches/3">
+    <span class="signature"><strong>iterations_runnable_in_duration_by_batches(fun, batches, target_duration_us)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#iterations_runnable_in_duration_by_batches/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>iterations_runnable_in_duration_by_batches(zero_arity_fun, pos_integer, number) :: pos_integer</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Returns the number of iterations a function can run in the provided duration (microseconds) by
+running it in batches and checking between batches on the time elapsed</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="iterations_runnable_in_duration_by_batches/4">
+    <span class="signature"><strong>iterations_runnable_in_duration_by_batches(fun, batches, target_end_time_us, iters)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#iterations_runnable_in_duration_by_batches/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="measure_in_us/1">
+    <span class="signature"><strong>measure_in_us(fun)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#measure_in_us/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>measure_in_us(zero_arity_fun) :: {any, number}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Returns the result of running a function and the time it took to run in microseconds</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="now_us/0">
+    <span class="signature"><strong>now_us()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#now_us/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>now_us :: pos_integer</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Returns current time in microseconds</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="report/2">
+    <span class="signature"><strong>report(fun, options \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#report/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>report(zero_arity_fun, warmup_duration_s: number, bench_duration_s: number) :: {float, float}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Benchmarks a function and returns the iterations per second and microseconds per iterations</p>
+<p>The function is first benchmarked for the provided warmup duration (seconds, default 1) in
+batches of 1 in order to determine about how many iterations can run in 100ms.</p>
+<p>It is then benchmarked in batches of that number of iterations for the provided bench duration
+(seconds, default 2).</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+      </section> <!--/content -->
+</div><!--/row -->
+
+    <script src="dist/app.js"></script>
+  </body>
+</html>
+
