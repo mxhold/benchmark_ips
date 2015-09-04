@@ -1,4 +1,7 @@
 defmodule BenchmarkIps do
+  @milliseconds_in_second 1.0e3
+  @microseconds_in_second 1.0e6
+
   @typep zero_arity_fun :: (() -> any)
 
   @doc """
@@ -38,14 +41,13 @@ defmodule BenchmarkIps do
   """
   @spec iterations_per_100ms(pos_integer, number) :: pos_integer
   def iterations_per_100ms(iters, time_us) do
-    time_ms = time_us * 1.0e-3
+    time_ms = time_us * (1 / @milliseconds_in_second)
     iterations_per_ms = iters / time_ms
-    batches = iterations_per_ms * 100
-    batches = round(batches)
-    if batches <= 0 do
+    iterations_per_100ms = round(iterations_per_ms * 100)
+    if iterations_per_100ms <= 0 do
       1
     else
-      batches
+      iterations_per_100ms
     end
   end
 
@@ -73,7 +75,7 @@ defmodule BenchmarkIps do
   """
   @spec bench(zero_arity_fun, pos_integer, number) :: {pos_integer, number}
   def bench(fun, batches, target_duration_s) do
-    target_duration_us = target_duration_s * 1.0e6
+    target_duration_us = target_duration_s * @microseconds_in_second
 
     {iters, actual_time_us} = measure_in_us(fn ->
       iterations_runnable_in_duration_by_batches(fun, batches, target_duration_us)
@@ -104,8 +106,8 @@ defmodule BenchmarkIps do
 
     iters_per_us = actual_iters / actual_time_us
 
+    iters_per_s = iters_per_us * @microseconds_in_second
     us_per_iter = 1 / iters_per_us
-    iters_per_s = iters_per_us * 1.0e6
 
     {iters_per_s, us_per_iter}
   end
