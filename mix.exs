@@ -18,9 +18,10 @@ defmodule BenchmarkIps.Mixfile do
 
   def package do
     [
-      files: ["lib", "mix.exs", "README", "examples"],
+      files: ["lib", "mix.exs", "README.md", "LICENSE", "examples"],
       contributors: ["Max Holder"],
-      links: %{ "GitHub" => "https://github.com/mxhold/benchmark_ips" }
+      links: %{ "GitHub" => "https://github.com/mxhold/benchmark_ips" },
+      licenses: ["MIT"],
     ]
   end
 
