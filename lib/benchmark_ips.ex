@@ -1,12 +1,10 @@
 defmodule BenchmarkIps do
-  @typedoc """
-  A function with zero arity
-  """
-  @type zero_arity_fun :: (() -> any)
+  @typep zero_arity_fun :: (() -> any)
 
   @doc """
   Returns current time in microseconds
   """
+  @spec now_us() :: pos_integer
   def now_us do
     :erlang.monotonic_time(:micro_seconds)
   end
@@ -14,6 +12,7 @@ defmodule BenchmarkIps do
   @doc """
   Calls the function the specified number of times
   """
+  @spec call_times(zero_arity_fun, pos_integer) :: nil
   def call_times(fun, times) do
     fun.()
 
@@ -25,6 +24,7 @@ defmodule BenchmarkIps do
   @doc """
   Returns the result of running a function and the time it took to run in microseconds
   """
+  @spec measure_in_us(zero_arity_fun) :: {any, number}
   def measure_in_us(fun) do
     start = now_us
     result = fun.()
@@ -36,6 +36,7 @@ defmodule BenchmarkIps do
   Returns the number of iterations that should be able to be run in 100ms given a number
   of iterations and a duration in microseconds
   """
+  @spec iterations_per_100ms(pos_integer, number) :: pos_integer
   def iterations_per_100ms(iters, time_us) do
     time_ms = time_us * 1.0e-3
     iterations_per_ms = iters / time_ms
@@ -52,6 +53,7 @@ defmodule BenchmarkIps do
   Returns the number of iterations a function can run in the provided duration (microseconds) by
   running it in batches and checking between batches on the time elapsed
   """
+  @spec iterations_runnable_in_duration_by_batches(zero_arity_fun, pos_integer, number) :: pos_integer
   def iterations_runnable_in_duration_by_batches(fun, batches, target_duration_us) do
     iterations_runnable_in_duration_by_batches(fun, batches, now_us + target_duration_us, 0)
   end
@@ -69,6 +71,7 @@ defmodule BenchmarkIps do
   Returns the number of iterations and elapsed time of running a function in batches for the
   provided target duration (seconds)
   """
+  @spec bench(zero_arity_fun, pos_integer, number) :: {pos_integer, number}
   def bench(fun, batches, target_duration_s) do
     target_duration_us = target_duration_s * 1.0e6
 
@@ -88,6 +91,7 @@ defmodule BenchmarkIps do
   It is then benchmarked in batches of that number of iterations for the provided bench duration
   (seconds, default 2).
   """
+  @spec report(zero_arity_fun, [warmup_duration_s: number, bench_duration_s: number]) :: {float, float}
   def report(fun, options \\ []) do
     warmup_duration_s = Keyword.get(options, :warmup_duration_s, 1)
     bench_duration_s = Keyword.get(options, :bench_duration_s, 2)
