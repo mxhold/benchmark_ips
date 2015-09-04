@@ -35,3 +35,8 @@ You can also specify how long the warmup time and bench time should be (below ar
 ~~~elixir
 BenchmarkIps.report(fn -> :timer.sleep(1_000) end, warmup_time_s: 1, bench_time_s: 2)
 ~~~
+
+## Example
+
+An example is included in `examples/list_bench.exs` that compares various operations on lists and tuples.
+
