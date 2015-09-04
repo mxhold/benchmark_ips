@@ -1,6 +1,6 @@
 # BenchmarkIps
 
-[![Hex docs](http://img.shields.io/badge/hex.pm-docs-green.svg?style=flat)](https://hexdocs.pm/benchmark_ips) [![Hex Version](http://img.shields.io/hexpm/v/benchmark_ips.svg?style=flat)](https://hex.pm/packages/benchmark_ips) [![License](http://img.shields.io/hexpm/l/benchmark_ips.svg?style=flat)](https://github.com/mxhold/benchmark_ips/blob/master/LICENSE)
+[![Build Status](https://img.shields.io/travis/mxhold/benchmark_ips.svg?style=flat)](https://travis-ci.org/mxhold/benchmark_ips) [![Hex docs](http://img.shields.io/badge/hex.pm-docs-green.svg?style=flat)](https://hexdocs.pm/benchmark_ips) [![Hex Version](http://img.shields.io/hexpm/v/benchmark_ips.svg?style=flat)](https://hex.pm/packages/benchmark_ips) [![License](http://img.shields.io/hexpm/l/benchmark_ips.svg?style=flat)](https://github.com/mxhold/benchmark_ips/blob/master/LICENSE)
 
 **Warning: this is a work-in-progress by someone learning Elixir and has not been reviewed by anyone who knows what they're doing.**
 
