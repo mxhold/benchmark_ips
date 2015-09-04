@@ -23,7 +23,7 @@ Then run `mix deps.get` to fetch everything.
 
 ## Usage
 
-Pass in a function and the result will be return the iterations per second and how long each iteration takes in microseconds:
+Pass in a function to `BenchmarkIps.report` and it will return `{iterations_per_second, microseconds_per_iteration}`:
 
 ~~~elixir
 iex> BenchmarkIps.report(fn -> :timer.sleep(1_000) end)
