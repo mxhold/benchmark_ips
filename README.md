@@ -14,7 +14,7 @@ Add BenchmarkIps to your `mix.exs` file:
 defp deps do
   [
     # ...
-    { :benchmark_ips, "~> 0.1.0" },
+    { :benchmark_ips, "~> 0.2.0" },
   ]
 end
 ~~~
