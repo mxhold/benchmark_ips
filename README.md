@@ -40,3 +40,4 @@ BenchmarkIps.report(fn -> :timer.sleep(1_000) end, warmup_time_s: 1, bench_time_
 
 An example is included in `examples/list_bench.exs` that compares various operations on lists and tuples.
 
+See `examples/list_bench.md` for the output it generates.

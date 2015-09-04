@@ -1,5 +1,7 @@
 defmodule ListBench do
   def run do
+    IO.puts "# Elixir list vs tuple benchmark"
+
     lists = [
       "10k": Enum.to_list(1..10_000),
       "100k": Enum.to_list(1..100_000),
@@ -14,7 +16,7 @@ defmodule ListBench do
       "access last": fn list -> List.last list end,
     ]
 
-    IO.puts "# Lists"
+    IO.puts "\n## Lists"
     report_each(lists, list_operations)
 
     tuples = lists |> Enum.map(fn {label, list} -> {label, List.to_tuple(list)} end)
@@ -27,15 +29,15 @@ defmodule ListBench do
       "access last": fn tuple -> elem(tuple, tuple_size(tuple) - 1) end,
     ]
 
-    IO.puts "\n# Tuples"
+    IO.puts "\n## Tuples"
     report_each(tuples, tuple_operations)
   end
 
   def report_each(collection, operations) do
     operations
     |> Enum.map(fn {label, fun} ->
-      IO.puts "\n## #{label |> to_string |> String.capitalize}\n"
-      IO.puts "#{String.rjust("label", 10)} #{String.rjust("i/s", 15)} #{String.rjust("μ/i", 15)}"
+      IO.puts "\n### #{label |> to_string |> String.capitalize}\n"
+      IO.puts "#{String.rjust("size", 10)} #{String.rjust("i/s", 15)} #{String.rjust("μ/i", 15)}"
       do_with_each(collection, fun)
     end)
   end
